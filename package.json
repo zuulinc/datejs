@@ -1,5 +1,5 @@
 {
-  "name": "datejs",
+  "name": "datejs.zuul",
   "version": "0.0.1",
   "description": "Basic utility for date comparison, manipulation and formatting. ",
   "main": "datejs.js",
