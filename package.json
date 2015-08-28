@@ -4,7 +4,8 @@
   "description": "Basic utility for date comparison, manipulation and formatting. ",
   "main": "datejs.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "./node_modules/.bin/jsdoc2md datejs.js > README.md"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/zuulinc/datejs/issues"
   },
-  "homepage": "https://github.com/zuulinc/datejs#readme"
+  "homepage": "https://github.com/zuulinc/datejs#readme",
+  "dependencies": {
+    "jsdoc-to-markdown": "^1.1.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
 }

@@ -20,7 +20,12 @@ var pad = function(num) {
 	return num.join('');
 };
 
-var datejs = {
+/**
+ * Date utility initially used for inkincardine.com
+ * @module datejs
+ * @type {string}
+ */
+module.exports = {
 
 	/*
 	Default of course is 0, but if you want to change it to something different you can do so here.
@@ -123,5 +128,3 @@ var datejs = {
 		return formatted;
 	}
 };
-
-module.exports = datejs;
