@@ -1,5 +1,6 @@
 /**
  * Pad a string with the default options. In time we should pass an options object so each call can override the defaults
+ * @ignore
  * @param  {int} num the number to be pad
  * @return {string}     the new string
  */
@@ -23,7 +24,6 @@ var pad = function(num) {
 /**
  * Date utility initially used for inkincardine.com
  * @module datejs
- * @type {string}
  */
 module.exports = {
 

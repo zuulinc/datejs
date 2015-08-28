@@ -1,21 +1,9 @@
-## Modules
-<dl>
-<dt><a href="#module_datejs">datejs</a> : <code>string</code></dt>
-<dd><p>Date utility initially used for inkincardine.com</p>
-</dd>
-</dl>
-## Functions
-<dl>
-<dt><a href="#pad">pad(num)</a> ⇒ <code>string</code></dt>
-<dd><p>Pad a string with the default options. In time we should pass an options object so each call can override the defaults</p>
-</dd>
-</dl>
 <a name="module_datejs"></a>
-## datejs : <code>string</code>
+## datejs
 Date utility initially used for inkincardine.com
 
 
-* [datejs](#module_datejs) : <code>string</code>
+* [datejs](#module_datejs)
   * [.isThisWeek(target, offset)](#module_datejs.isThisWeek) ⇒ <code>Boolean</code>
   * [.getStartOfWeek(date)](#module_datejs.getStartOfWeek) ⇒ <code>Date</code>
   * [.isNextWeek(target)](#module_datejs.isNextWeek) ⇒ <code>Boolean</code>
@@ -102,15 +90,4 @@ Simple date formatting
 | --- | --- | --- |
 | date | <code>Date</code> | date we're going to format |
 | format | <code>String</code> | formatting string |
-
-<a name="pad"></a>
-## pad(num) ⇒ <code>string</code>
-Pad a string with the default options. In time we should pass an options object so each call can override the defaults
-
-**Kind**: global function  
-**Returns**: <code>string</code> - the new string  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| num | <code>int</code> | the number to be pad |
 
