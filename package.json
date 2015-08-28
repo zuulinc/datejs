@@ -1,0 +1,23 @@
+{
+  "name": "datejs",
+  "version": "0.0.1",
+  "description": "Basic utility for date comparison, manipulation and formatting. ",
+  "main": "datejs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zuulinc/datejs.git"
+  },
+  "keywords": [
+    "javascript",
+    "date"
+  ],
+  "author": "Keith Foster, ZUUL Inc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zuulinc/datejs/issues"
+  },
+  "homepage": "https://github.com/zuulinc/datejs#readme"
+}
