@@ -1,1 +1,3 @@
-var gulp = require('gulp');
+'use strict';
+
+require('./gulp');

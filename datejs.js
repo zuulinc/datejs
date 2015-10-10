@@ -1,3 +1,4 @@
+
 /**
  * Pad a string with the default options. In time we should pass an options object so each call can override the defaults
  * @ignore
@@ -19,6 +20,22 @@ var pad = function(num) {
 	}
 
 	return num.join('');
+};
+
+var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+	mths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+
+// datejs.format(date, 'MM')
+var __ = {
+	F: function(d) {
+		return months[d.getMonth()];
+	},
+	m: function(d) {
+		return pad(d.getMonth());
+	},
+	M: function(d) {
+		return mths[d.getMonth()];
+	}
 };
 
 /**
@@ -107,6 +124,10 @@ module.exports = {
 		return now >= left && now <= right;
 	},
 
+	_getDateSnippet: function(date, block) {
+
+	},
+
 	/**
 	 * Simple date formatting
 	 * @param  {Date} date   date we're going to format
@@ -114,15 +135,24 @@ module.exports = {
 	 * @return {String}        formatted date.
 	 */
 	format: function(date, format) {
-		var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
-			formatted;
+		format = format || 'full'
+		var formatted;
 
 		if ('date' === format) {
 			formatted = date.getFullYear()+'-'+pad(date.getMonth()+1) + '-' + pad(date.getDate());
 		} else if ('time' === format) {
 			formatted = pad(date.getHours()) + ':' + pad(date.getMinutes());
-		} else {
+		} else if ('full' === format) {
 			formatted = pad(date.getHours())+':' + pad(date.getMinutes()) + ' &mdash; ' + months[date.getMonth()] + ' ' + date.getDate() + ', '+date.getFullYear();	
+		} else {
+			var tokens = format.split(' '),
+				blocks = [];
+
+			for(var i=0, token; i<tokens.length, token=tokens[i]; i++) {
+				blocks.push(__[token](date));
+			}
+
+			formatted = blocks.join(' ');
 		}
 
 		return formatted;
