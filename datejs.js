@@ -23,7 +23,9 @@ var pad = function(num) {
 };
 
 var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-	mths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+	mths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+	dys = ['Sun', 'Mon', 'Tue', 'Wed', 'Thr', 'Fri', 'Sat'],
+	days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 // datejs.format(date, 'MM')
 var __ = {
@@ -41,6 +43,12 @@ var __ = {
 	},
 	d: function(d) {
 		return pad(d.getDate());
+	},
+	D: function(d) {
+		return dys[d.getDay()];
+	},
+	l: function(d) {
+		return days[d.getDay()];
 	}
 };
 
