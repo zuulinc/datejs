@@ -31,13 +31,16 @@ var __ = {
 		return months[d.getMonth()];
 	},
 	m: function(d) {
-		return pad(d.getMonth());
+		return pad(d.getMonth()+1);
 	},
 	M: function(d) {
 		return mths[d.getMonth()];
 	},
 	Y: function(d) {
 		return d.getFullYear();
+	},
+	d: function(d) {
+		return pad(d.getDate());
 	}
 };
 
