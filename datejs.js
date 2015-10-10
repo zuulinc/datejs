@@ -35,6 +35,9 @@ var __ = {
 	},
 	M: function(d) {
 		return mths[d.getMonth()];
+	},
+	Y: function(d) {
+		return d.getFullYear();
 	}
 };
 
@@ -135,7 +138,7 @@ module.exports = {
 	 * @return {String}        formatted date.
 	 */
 	format: function(date, format) {
-		format = format || 'full'
+		format = format || 'full';
 		var formatted;
 
 		if ('date' === format) {
@@ -148,11 +151,11 @@ module.exports = {
 			var tokens = format.split(' '),
 				blocks = [];
 
-			for(var i=0, token; i<tokens.length, token=tokens[i]; i++) {
-				blocks.push(__[token](date));
+			for(var key in __) {
+				format = format.replace(key, __[key](date));
 			}
 
-			formatted = blocks.join(' ');
+			formatted = format;
 		}
 
 		return formatted;
