@@ -179,6 +179,7 @@ module.exports = {
                         parsed += __[token](date);
                         pointer = pointer + size;
                         size = 1;
+                        token = '';
                     }
                 } else {
                     parsed += token;
