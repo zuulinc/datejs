@@ -163,9 +163,9 @@ module.exports = {
                 isAlpha = new RegExp('\\w+', 'i'),
                 parsed = '';
 
-            while (pointer <= format.length) {
+            while ((pointer+size) <= format.length) {
                 token = format.substring(pointer, pointer+size);
-
+                
                 if (isAlpha.test(token)) {
                     if (!__[token]) {
                         size++;
@@ -174,7 +174,6 @@ module.exports = {
                         pointer = pointer + size;
                         size = 1;
                     }
-
                 } else {
                     parsed += token;
                     pointer++;
@@ -182,7 +181,7 @@ module.exports = {
                 }
             }
 
-            formatted = parsed;
+            formatted = parsed + token;
         }
 
         return formatted;
