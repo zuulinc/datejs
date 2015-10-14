@@ -51,6 +51,12 @@ var __ = {
     },
     l: function(d) {
         return days[d.getDay()];
+    },
+    G: function(d) {
+        return pad(d.getHours());
+    },
+    i: function(d) {
+        return pad(d.getMinutes());
     }
 };
 
