@@ -62,11 +62,11 @@ var __ = {
         return d.getDate();
     },
     S: function(d) {
-        var suffixes = ['st', 'nd', 'rd', 'th'],
+        var suffixes = ['th', 'st', 'nd', 'rd', 'th'],
             base = d.getDate() % 10;
 
         base = base > 4 ? 4 : base;
-        return suffixes[base-1];
+        return suffixes[base];
     }
 };
 
