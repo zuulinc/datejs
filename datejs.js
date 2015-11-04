@@ -57,6 +57,16 @@ var __ = {
     },
     i: function(d) {
         return pad(d.getMinutes());
+    },
+    j: function(d) {
+        return d.getDate();
+    },
+    S: function(d) {
+        var suffixes = ['st', 'nd', 'rd', 'th'],
+            base = d.getDate() % 10;
+
+        base = base > 4 ? 4 : base;
+        return suffixes[base-1];
     }
 };
 
@@ -155,6 +165,8 @@ module.exports = {
     format: function(date, format) {
         format = format || 'full';
         var formatted;
+
+        // console.log(format);
 
         if ('date' === format) {
             formatted = date.getFullYear()+'-'+pad(date.getMonth()+1) + '-' + pad(date.getDate());
