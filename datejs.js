@@ -22,6 +22,27 @@ var pad = function(num) {
     return num.join('');
 };
 
+var _differ = {
+    days: function(start, end) {
+        return Math.floor((end-start)/(1000*60*60*24));
+    },
+
+    weeks: function(start, end) {
+        return Math.floor((end-start)/(1000*60*60*24*7));
+    },
+
+    months: function(start, end) {
+        var yd = end.getFullYear() - start.getFullYear(),
+            md = end.getMonth() - start.getMonth();
+
+        return (yd*12)+md;
+    },
+
+    years: function(start, end) {
+        return end.getFullYear() - start.getFullYear();
+    }
+};
+
 /*
 Static Variables
  */
@@ -63,9 +84,10 @@ var __ = {
     },
     S: function(d) {
         var suffixes = ['th', 'st', 'nd', 'rd', 'th'],
-            base = d.getDate() % 10;
+            date = d.getDate(),
+            base = date % 10;
 
-        base = base > 4 ? 4 : base;
+        base = Math.floor(date/10) === 1 ? 0 : (base > 4 ? 4 : base);
         return suffixes[base];
     }
 };
@@ -204,5 +226,15 @@ module.exports = {
         }
 
         return formatted;
+    },
+
+    diff: function(start, end, unit) {
+        unit = unit || 'days';
+
+        if (_differ[unit]) {
+            return _differ[unit](start, end);    
+        } else {
+            return 'Invalid Unit: '+unit;
+        }        
     }
 };
